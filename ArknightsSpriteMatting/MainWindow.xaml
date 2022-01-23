@@ -1,0 +1,44 @@
+﻿<Window x:Class="ArknightsSpriteMatting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ArknightsSpriteMatting" Height="400" Width="580">
+    <StackPanel Margin="25, 0" VerticalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Texture2D 目录</Label>
+            <TextBox x:Name="Texture2DTextBox" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+            <Button x:Name="Texture2DButton" Grid.Row="0" Grid.Column="2" Margin="3,0,0,0" Click="Texture2DButton_Click">...</Button>
+            <Label Grid.Row="1" Grid.Column="0" Margin="0,3,0,0">Sprite 转储目录</Label>
+            <TextBox x:Name="SpriteDumpTextBox" Grid.Row="1" Grid.Column="1" Margin="0,3,0,0" VerticalContentAlignment="Center"/>
+            <Button x:Name="SpriteDumpButton" Grid.Row="1" Grid.Column="2" Margin="3,3,0,0" Click="SpriteDumpButton_Click">...</Button>
+            <Label Grid.Row="2" Grid.Column="0" Margin="0,3,0,0">导出目录</Label>
+            <TextBox x:Name="OutputTextBox" Grid.Row="2" Grid.Column="1" Margin="0,3,0,0" VerticalContentAlignment="Center"/>
+            <Button x:Name="OutputButton" Grid.Row="2" Grid.Column="2" Margin="3,3,0,0" Click="OutputButton_Click">...</Button>
+        </Grid>
+        <StackPanel Margin="0,3,0,0" Orientation="Horizontal">
+            <CheckBox x:Name="CropCheckBox" Content="裁剪多余空白区域" VerticalAlignment="Center" VerticalContentAlignment="Center" Click="CropCheckBox_Click"/>
+            <Label Content="?" ToolTip="对于头像、立绘等尺寸固定的图片，不应开启此项"/>
+            <Label Margin="15,0,0,0">图片位置</Label>
+            <RadioButton x:Name="BottomLeftRadioButton" Content="左下（适用于头像及立绘）" GroupName="Position" IsChecked="True" VerticalAlignment="Center"/>
+            <RadioButton x:Name="CenterRadioButton" Content="居中（适用于图标等）" GroupName="Position" Margin="3,0,0,0" VerticalAlignment="Center"/>
+        </StackPanel>
+        <ProgressBar x:Name="ProgressBar" Margin="0,6,0,0" Height="20"/>
+        <TextBox x:Name="LogTextBox" Margin="0,6,0,0" Height="160" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <StackPanel Margin="0,6,0,0" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="ConfirmButton" Width="45" Height="30" Margin="0,0,6,0" Click="ConfirmButton_Click">确认</Button>
+            <Button x:Name="CloseButton" Width="45" Height="30" Click="CloseButton_Click">关闭</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
